@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>끝말잇기 게임</title>
+  <link rel="stylesheet" href="css/word-relay.css">
+</head>
+<body>
+  <h1>끝말잇기 게임</h1>
+
+  <!-- 참가자 수 입력 -->
+  <div id="setup">
+    <label>참가자 수: 
+      <input type="number" id="playerCount" min="2">
+    </label>
+    <button id="setPlayersBtn">확인</button>
+  </div>
+
+  <!-- 참가자 이름 입력 -->
+  <div id="nameInputArea" style="display:none;">
+    <p id="namePrompt"></p>
+    <!-- 입력창 위 안내 박스 -->
+    <div id="noticeBanner" style="display:none;"></div>
+    <input type="text" id="playerNameInput" placeholder="참가자 이름 입력" lang="ko" inputmode="text">
+    <button id="addPlayerBtn">추가</button>
+  </div>
+
+  <!-- 제한시간 표시 -->
+  <div id="timerArea" style="display:none;">
+    <div id="timerBarContainer">
+      <div id="timerBar"></div>
+    </div>
+    <p id="timerText"></p>
+  </div>
+
+  <!-- 게임 영역 -->
+  <div id="gameArea" style="display:none;">
+    <div id="mainPlayArea">
+      <p id="turnInfo"></p>
+      <input type="text" id="wordInput" lang="ko" inputmode="text">
+      <button id="submitWordBtn">입력</button>
+      <p id="lastWord"></p>
+      <p id="errorMsg"></p>
+    </div>
+  </div>
+
+  <!-- 현재 순서 표시 -->
+  <div id="orderArea" style="display:none;">
+    <h3>현재 순서</h3>
+    <ol id="orderList"></ol>
+  </div>
+
+  <!-- 단어 기록 패널 -->
+  <div id="wordHistoryArea" style="display:none;">
+    <h3>지금까지 나온 단어</h3>
+    <ul id="wordHistory"></ul>
+  </div>
+
+  <!-- 탈락자 목록 -->
+  <div id="eliminatedArea" style="display:none;">
+    <h3>탈락된 참가자</h3>
+    <ul id="eliminatedList"></ul>
+  </div>
+
+  <!-- 승리자 모달 -->
+  <div id="winnerModal" style="display:none;">
+    <p id="winnerMsg"></p>
+    <button onclick="resetGame()">게임 초기화</button>
+    <button onclick="restartWithSamePlayers()">참가자 유지하고 다시 시작</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
